@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>АСУ РСО — Вход в систему</title>
+<title>АСУ РСО — Вход</title>
 <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
@@ -12,24 +12,59 @@
     <div class="logo">АСУ РСО</div>
     <p>Автоматизированная система управления ресурсами системы образования</p>
   </div>
-  <form id="loginForm" class="login-form">
-    <label>
-      <span>Логин</span>
-      <input type="text" id="username" placeholder="Введите логин" autocomplete="username">
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="login">Вход</button>
+    <button class="tab-btn" data-tab="register">Регистрация</button>
+  </div>
+
+  <form id="loginForm" class="auth-form active">
+    <label><span>Логин</span>
+      <input type="text" id="loginLogin" placeholder="Введите логин" autocomplete="username" required>
     </label>
-    <label>
-      <span>Пароль</span>
-      <input type="password" id="password" placeholder="Введите пароль" autocomplete="current-password">
+    <label><span>Пароль</span>
+      <input type="password" id="loginPassword" placeholder="Введите пароль" autocomplete="current-password" required>
     </label>
-    <div class="role-select">
-      <label><input type="radio" name="role" value="student" checked> Ученик</label>
-      <label><input type="radio" name="role" value="parent"> Родитель</label>
-      <label><input type="radio" name="role" value="teacher"> Учитель</label>
+    <button type="submit" class="btn-primary">Войти</button>
+    <p class="error" id="loginError"></p>
+    <div class="hint-block">
+      <strong>Тестовые аккаунты:</strong><br>
+      👑 admin / admin123<br>
+      👨‍🏫 teacher / teacher123<br>
+      👨‍🎓 student / student123
     </div>
-    <button type="submit">Войти</button>
-    <p class="hint">Демо: любой логин/пароль (мин. 3 символа)</p>
+  </form>
+
+  <form id="registerForm" class="auth-form">
+    <label><span>ФИО</span>
+      <input type="text" id="regName" placeholder="Иванов Иван Иванович" required>
+    </label>
+    <label><span>Логин</span>
+      <input type="text" id="regLogin" placeholder="Латинские буквы и цифры" required>
+    </label>
+    <label><span>Пароль</span>
+      <input type="password" id="regPassword" placeholder="Минимум 6 символов" required>
+    </label>
+    <label><span>Роль</span>
+      <select id="regRole" required>
+        <option value="student">Ученик</option>
+        <option value="teacher">Учитель</option>
+        <option value="admin">Администратор</option>
+      </select>
+    </label>
+    <label id="classField" style="display:none;"><span>Класс</span>
+      <select id="regClass"></select>
+    </label>
+    <label id="subjectsField" style="display:none;"><span>Предметы (через запятую)</span>
+      <input type="text" id="regSubjects" placeholder="Алгебра, Геометрия">
+    </label>
+    <button type="submit" class="btn-primary">Зарегистрироваться</button>
+    <p class="error" id="regError"></p>
   </form>
 </div>
+
+<script src="js/storage.js"></script>
+<script src="js/seed.js"></script>
 <script src="js/auth.js"></script>
 </body>
 </html>
