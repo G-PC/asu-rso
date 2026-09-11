@@ -1,88 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>АСУ РСО — Дневник</title>
-<link rel="stylesheet" href="css/style.css">
+<title>АСУ РСО</title>
+<script src="js/storage.js"></script>
+<script>
+  // Если есть сессия — в приложение, иначе на вход
+  const session = DB.getSession();
+  window.location.href = session ? 'app.html' : 'login.html';
+</script>
 </head>
-<body>
-<header class="topbar">
-  <div class="logo">АСУ РСО</div>
-  <div class="user-info">
-    <span id="userName">—</span>
-    <span class="role-badge" id="userRole">—</span>
-    <button id="logoutBtn" class="logout">Выйти</button>
-  </div>
-</header>
-
-<div class="layout">
-  <aside class="sidebar">
-    <nav>
-      <a href="#" data-tab="diary" class="active">📔 Дневник</a>
-      <a href="#" data-tab="grades">📊 Оценки</a>
-      <a href="#" data-tab="schedule">🗓 Расписание</a>
-      <a href="#" data-tab="homework">📝 Домашнее задание</a>
-      <a href="#" data-tab="messages">✉️ Сообщения</a>
-      <a href="#" data-tab="profile">👤 Профиль</a>
-    </nav>
-  </aside>
-
-  <main class="content">
-    <!-- Дневник -->
-    <section id="tab-diary" class="tab-panel active">
-      <h1>Дневник</h1>
-      <div class="week-nav">
-        <button id="prevWeek">◀ Предыдущая</button>
-        <span id="weekRange"></span>
-        <button id="nextWeek">Следующая ▶</button>
-      </div>
-      <div id="diaryContent"></div>
-    </section>
-
-    <!-- Оценки -->
-    <section id="tab-grades" class="tab-panel">
-      <h1>Оценки за четверть</h1>
-      <table class="grades-table" id="gradesTable">
-        <thead>
-          <tr><th>Предмет</th><th>I четв.</th><th>II четв.</th><th>III четв.</th><th>IV четв.</th><th>Годовая</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
-
-    <!-- Расписание -->
-    <section id="tab-schedule" class="tab-panel">
-      <h1>Расписание уроков</h1>
-      <div id="scheduleContent"></div>
-    </section>
-
-    <!-- Домашка -->
-    <section id="tab-homework" class="tab-panel">
-      <h1>Домашнее задание</h1>
-      <div id="homeworkContent"></div>
-    </section>
-
-    <!-- Сообщения -->
-    <section id="tab-messages" class="tab-panel">
-      <h1>Сообщения</h1>
-      <div class="messages-layout">
-        <div class="msg-list" id="msgList"></div>
-        <div class="msg-view" id="msgView">
-          <p class="placeholder">Выберите сообщение</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Профиль -->
-    <section id="tab-profile" class="tab-panel">
-      <h1>Профиль</h1>
-      <div class="profile-card" id="profileCard"></div>
-    </section>
-  </main>
-</div>
-
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
-</body>
+<body></body>
 </html>
