@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АСУ РСО — Вход в систему</title>
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div class="login-container">
+  <div class="login-header">
+    <div class="logo">АСУ РСО</div>
+    <p>Автоматизированная система управления ресурсами системы образования</p>
+  </div>
+  <form id="loginForm" class="login-form">
+    <label>
+      <span>Логин</span>
+      <input type="text" id="username" placeholder="Введите логин" autocomplete="username">
+    </label>
+    <label>
+      <span>Пароль</span>
+      <input type="password" id="password" placeholder="Введите пароль" autocomplete="current-password">
+    </label>
+    <div class="role-select">
+      <label><input type="radio" name="role" value="student" checked> Ученик</label>
+      <label><input type="radio" name="role" value="parent"> Родитель</label>
+      <label><input type="radio" name="role" value="teacher"> Учитель</label>
+    </div>
+    <button type="submit">Войти</button>
+    <p class="hint">Демо: любой логин/пароль (мин. 3 символа)</p>
+  </form>
+</div>
+<script src="js/auth.js"></script>
+</body>
+</html>
