@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АСУ РСО — Журнал</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">АСУ РСО</div>
+  <div class="user-info">
+    <span id="userName">—</span>
+    <span class="role-badge" id="userRole">—</span>
+    <button id="logoutBtn" class="logout">Выйти</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <nav id="mainNav">
+      <a href="#" data-tab="diary" class="active">📔 Дневник</a>
+      <a href="#" data-tab="grades">📊 Оценки</a>
+      <a href="#" data-tab="schedule">🗓 Расписание</a>
+      <a href="#" data-tab="homework">📝 Домашка</a>
+      <a href="#" data-tab="gradebook" data-roles="teacher,admin" style="display:none;">✍️ Журнал</a>
+      <a href="#" data-tab="admin" data-roles="admin" style="display:none;">⚙️ Админ-панель</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <!-- ДНЕВНИК -->
+    <section id="tab-diary" class="tab-panel active">
+      <h1 id="diaryTitle">Мой дневник</h1>
+      <div id="diaryContent">Загрузка...</div>
+    </section>
+
+    <!-- ОЦЕНКИ -->
+    <section id="tab-grades" class="tab-panel">
+      <h1>Оценки</h1>
+      <div id="gradesContent">Загрузка...</div>
+    </section>
+
+    <!-- РАСПИСАНИЕ -->
+    <section id="tab-schedule" class="tab-panel">
+      <h1>Расписание</h1>
+      <div id="scheduleContent">Загрузка...</div>
+    </section>
+
+    <!-- ДОМАШКА -->
+    <section id="tab-homework" class="tab-panel">
+      <h1>Домашнее задание</h1>
+      <div id="homeworkContent">Загрузка...</div>
+    </section>
+
+    <!-- ЖУРНАЛ УЧИТЕЛЯ -->
+    <section id="tab-gradebook" class="tab-panel">
+      <h1>Журнал учителя</h1>
+      <div class="toolbar">
+        <label>Класс: <select id="gbClass"></select></label>
+        <label>Предмет: <select id="gbSubject"></select></label>
+        <label>Дата: <input type="date" id="gbDate"></label>
+      </div>
+      <div id="gradebookContent">Выберите класс и предмет</div>
+    </section>
+
+    <!-- АДМИН-ПАНЕЛЬ -->
+    <section id="tab-admin" class="tab-panel">
+      <h1>Администрирование</h1>
+
+      <div class="admin-block">
+        <h3>Пользователи</h3>
+        <button id="showAddUser" class="btn-secondary">+ Добавить пользователя</button>
+        <div id="addUserForm" style="display:none;" class="add-form">
+          <input type="text" id="newName" placeholder="ФИО">
+          <input type="text" id="newLogin" placeholder="Логин">
+          <input type="password" id="newPassword" placeholder="Пароль">
+          <select id="newRole">
+            <option value="student">Ученик</option>
+            <option value="teacher">Учитель</option>
+            <option value="admin">Администратор</option>
+          </select>
+          <input type="text" id="newClass" placeholder="Класс (для ученика)">
+          <input type="text" id="newSubjects" placeholder="Предметы (для учителя, через запятую)">
+          <button id="createUserBtn" class="btn-primary">Создать</button>
+        </div>
+        <table class="users-table" id="usersTable">
+          <thead>
+            <tr><th>ID</th><th>ФИО</th><th>Логин</th><th>Роль</th><th>Класс/Предметы</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="admin-block">
+        <h3>Классы</h3>
+        <div class="inline-form">
+          <input type="text" id="newClassName" placeholder="Название класса">
+          <button id="addClassBtn" class="btn-primary">Добавить класс</button>
+        </div>
+        <div id="classesList"></div>
+      </div>
+
+      <div class="admin-block">
+        <h3>Расписание</h3>
+        <div class="toolbar">
+          <label>Класс: <select id="schedClass"></select></label>
+          <label>День: 
+            <select id="schedDay">
+              <option>Понедельник</option><option>Вторник</option><option>Среда</option>
+              <option>Четверг</option><option>Пятница</option><option>Суббота</option>
+            </select>
+          </label>
+        </div>
+        <div class="inline-form">
+          <input type="text" id="schedSubject" placeholder="Предмет">
+          <input type="text" id="schedRoom" placeholder="Кабинет">
+          <input type="text" id="schedTeacher" placeholder="Учитель">
+          <button id="addLessonBtn" class="btn-primary">Добавить урок</button>
+        </div>
+        <div id="schedPreview"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/seed.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
