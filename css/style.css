@@ -6,7 +6,6 @@ body {
   min-height: 100vh;
 }
 
-/* Верхняя панель */
 .topbar {
   background: #1e3c72;
   color: #fff;
@@ -16,9 +15,7 @@ body {
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: sticky; top: 0; z-index: 100;
 }
 .topbar .logo { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
 .user-info { display: flex; align-items: center; gap: 14px; font-size: 14px; }
@@ -39,12 +36,10 @@ body {
 }
 .logout:hover { background: rgba(255,255,255,.25); }
 
-/* Layout */
 .layout { display: flex; min-height: calc(100vh - 60px); }
 
-/* Sidebar */
 .sidebar {
-  width: 230px;
+  width: 240px;
   background: #fff;
   border-right: 1px solid #e5e9f0;
   padding: 20px 0;
@@ -67,32 +62,11 @@ body {
   font-weight: 600;
 }
 
-/* Content */
 .content { flex: 1; padding: 28px 32px; overflow-x: auto; }
 .content h1 { font-size: 22px; margin-bottom: 20px; color: #1e3c72; }
-
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
-/* Неделя */
-.week-nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 18px;
-}
-.week-nav button {
-  padding: 7px 14px;
-  background: #fff;
-  border: 1px solid #d5dbe7;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 13px;
-}
-.week-nav button:hover { background: #eaf1fb; }
-.week-nav span { font-weight: 600; color: #333; }
-
-/* Таблицы */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -101,9 +75,10 @@ table {
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,.06);
   font-size: 14px;
+  margin-top: 10px;
 }
 th, td {
-  padding: 12px 14px;
+  padding: 11px 14px;
   text-align: left;
   border-bottom: 1px solid #eef1f6;
 }
@@ -116,15 +91,13 @@ th {
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: #fafbfe; }
 
-/* Оценки */
 .grade {
   display: inline-block;
-  width: 26px;
-  height: 26px;
+  width: 26px; height: 26px;
   line-height: 26px;
   text-align: center;
   border-radius: 50%;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 13px;
   margin-right: 4px;
 }
@@ -133,55 +106,24 @@ tr:hover td { background: #fafbfe; }
 .grade.g3 { background: #fff3cd; color: #856404; }
 .grade.g2 { background: #f8d7da; color: #721c24; }
 
-/* Сообщения */
-.messages-layout { display: flex; gap: 16px; height: 500px; }
-.msg-list {
-  width: 300px;
-  background: #fff;
-  border-radius: 8px;
-  overflow-y: auto;
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
-}
-.msg-item {
-  padding: 14px 16px;
-  border-bottom: 1px solid #eef1f6;
-  cursor: pointer;
-  transition: background .15s;
-}
-.msg-item:hover { background: #f7f9fc; }
-.msg-item.active { background: #eaf1fb; border-left: 3px solid #2a5298; }
-.msg-item .from { font-weight: 600; font-size: 13px; color: #1e3c72; }
-.msg-item .subject { font-size: 13px; color: #444; margin: 4px 0 2px; }
-.msg-item .preview { font-size: 12px; color: #888; }
-.msg-view {
-  flex: 1;
-  background: #fff;
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
-  overflow-y: auto;
-}
-.msg-view .placeholder { color: #aaa; text-align: center; margin-top: 200px; }
-.msg-view h3 { color: #1e3c72; margin-bottom: 8px; }
-.msg-view .meta { font-size: 12px; color: #888; margin-bottom: 16px; }
-.msg-view .body { line-height: 1.6; color: #333; }
+.muted { color: #888; font-size: 13px; }
+.empty { color: #aaa; font-style: italic; padding: 20px 0; }
 
-/* Профиль */
-.profile-card {
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+.stat-card {
   background: #fff;
-  border-radius: 8px;
-  padding: 28px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
-  max-width: 600px;
+  border-radius: 10px;
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  text-align: center;
 }
-.profile-card .row {
-  display: flex;
-  padding: 10px 0;
-  border-bottom: 1px solid #eef1f6;
-}
-.profile-card .row:last-child { border-bottom: none; }
-.profile-card .row .label { width: 180px; color: #888; font-size: 13px; }
-.profile-card .row .value { flex: 1; font-weight: 500; }
+.stat-card .num { font-size: 34px; font-weight: 700; color: #2a5298; margin-bottom: 6px; }
+.stat-card div:last-child { color: #777; font-size: 13px; }
 
 /* Расписание */
 .schedule-day {
@@ -200,7 +142,7 @@ tr:hover td { background: #fafbfe; }
 }
 .lesson-row {
   display: grid;
-  grid-template-columns: 40px 1fr 120px;
+  grid-template-columns: 40px 1fr 200px;
   padding: 8px 0;
   font-size: 14px;
   border-bottom: 1px dashed #eef1f6;
@@ -218,22 +160,134 @@ tr:hover td { background: #fafbfe; }
   box-shadow: 0 2px 6px rgba(0,0,0,.06);
   border-left: 3px solid #2a5298;
 }
-.hw-item .subject {
-  font-weight: 600;
-  color: #1e3c72;
-  font-size: 14px;
-  margin-bottom: 6px;
-}
+.hw-item .subject { font-weight: 600; color: #1e3c72; font-size: 14px; margin-bottom: 6px; }
 .hw-item .task { font-size: 14px; color: #444; line-height: 1.5; }
 .hw-item .due { font-size: 12px; color: #888; margin-top: 8px; }
 
-/* Адаптив */
+/* Журнал */
+.toolbar {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 14px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.toolbar label { font-size: 13px; color: #555; display: flex; align-items: center; gap: 6px; }
+.toolbar select, .toolbar input {
+  padding: 7px 10px;
+  border: 1px solid #d5dbe7;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.grade-select {
+  padding: 5px 8px;
+  border: 1px solid #d5dbe7;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+/* Админ */
+.admin-block {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.admin-block h3 { color: #1e3c72; font-size: 16px; margin-bottom: 14px; }
+.add-form { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.add-form input, .add-form select {
+  padding: 9px 12px;
+  border: 1px solid #d5dbe7;
+  border-radius: 5px;
+  font-size: 13px;
+  flex: 1;
+  min-width: 130px;
+}
+.inline-form { display: flex; gap: 8px; margin: 10px 0; }
+.inline-form input {
+  padding: 9px 12px;
+  border: 1px solid #d5dbe7;
+  border-radius: 5px;
+  font-size: 13px;
+  flex: 1;
+}
+.btn-primary, .btn-secondary, .btn-danger {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+.btn-primary { background: #2a5298; color: #fff; }
+.btn-primary:hover { background: #1e3c72; }
+.btn-secondary { background: #eaf1fb; color: #1e3c72; }
+.btn-secondary:hover { background: #d9e5f5; }
+.btn-danger { background: #f8d7da; color: #721c24; padding: 5px 10px; font-size: 12px; }
+.btn-danger:hover { background: #f5c6cb; }
+
+.role-tag {
+  padding: 3px 9px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.role-admin { background: #f8d7da; color: #721c24; }
+.role-teacher { background: #d1ecf1; color: #0c5460; }
+.role-student { background: #d4edda; color: #155724; }
+
+.class-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: #eaf1fb;
+  color: #1e3c72;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+}
+.class-tag button {
+  background: none;
+  border: none;
+  color: #721c24;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.sched-preview-day {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eef1f6;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.lesson-tag {
+  background: #f4f7fc;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  display: inline-flex;
+  gap: 5px;
+}
+.lesson-tag button {
+  background: none;
+  border: none;
+  color: #721c24;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .sidebar { width: 60px; }
   .sidebar nav a { padding: 14px 8px; text-align: center; font-size: 20px; }
-  .sidebar nav a span { display: none; }
   .content { padding: 16px; }
-  .messages-layout { flex-direction: column; height: auto; }
-  .msg-list { width: 100%; max-height: 250px; }
-  .msg-view { min-height: 250px; }
+  .lesson-row { grid-template-columns: 30px 1fr 100px; }
 }
