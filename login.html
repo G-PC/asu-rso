@@ -14,16 +14,16 @@
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="login">Вход</button>
-    <button class="tab-btn" data-tab="register">Регистрация</button>
+    <button type="button" class="tab-btn active" data-tab="login">Вход</button>
+    <button type="button" class="tab-btn" data-tab="register">Регистрация</button>
   </div>
 
-  <form id="loginForm" class="auth-form active">
+  <form id="loginForm" class="auth-form active" autocomplete="on">
     <label><span>Логин</span>
-      <input type="text" id="loginLogin" placeholder="Введите логин" autocomplete="username" required>
+      <input type="text" id="loginLogin" placeholder="admin" required>
     </label>
     <label><span>Пароль</span>
-      <input type="password" id="loginPassword" placeholder="Введите пароль" autocomplete="current-password" required>
+      <input type="password" id="loginPassword" placeholder="admin123" required>
     </label>
     <button type="submit" class="btn-primary">Войти</button>
     <p class="error" id="loginError"></p>
@@ -35,12 +35,12 @@
     </div>
   </form>
 
-  <form id="registerForm" class="auth-form">
+  <form id="registerForm" class="auth-form" autocomplete="off">
     <label><span>ФИО</span>
       <input type="text" id="regName" placeholder="Иванов Иван Иванович" required>
     </label>
     <label><span>Логин</span>
-      <input type="text" id="regLogin" placeholder="Латинские буквы и цифры" required>
+      <input type="text" id="regLogin" placeholder="Латиница и цифры, от 3 символов" required>
     </label>
     <label><span>Пароль</span>
       <input type="password" id="regPassword" placeholder="Минимум 6 символов" required>
@@ -63,6 +63,7 @@
   </form>
 </div>
 
+<!-- Скрипты в строгом порядке -->
 <script src="js/storage.js"></script>
 <script src="js/seed.js"></script>
 <script src="js/auth.js"></script>
