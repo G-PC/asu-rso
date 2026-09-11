@@ -3,12 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <title>АСУ РСО</title>
+</head>
+<body>
 <script src="js/storage.js"></script>
 <script>
-  // Если есть сессия — в приложение, иначе на вход
-  const session = DB.getSession();
-  window.location.href = session ? 'app.html' : 'login.html';
+  (function () {
+    const session = DB.getSession();
+    console.log('index.html: сессия =', session);
+    if (session) {
+      window.location.replace('app.html');
+    } else {
+      window.location.replace('login.html');
+    }
+  })();
 </script>
-</head>
-<body></body>
+</body>
 </html>
