@@ -13,60 +13,68 @@ body {
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0,0,0,.3);
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   overflow: hidden;
 }
 .login-header {
   background: #1e3c72;
   color: #fff;
-  padding: 30px 25px;
+  padding: 26px 25px;
   text-align: center;
 }
-.login-header .logo {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-.login-header p { font-size: 12px; opacity: .8; line-height: 1.4; }
-.login-form { padding: 30px 25px; }
-.login-form label { display: block; margin-bottom: 18px; }
-.login-form label span {
-  display: block;
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 6px;
-}
-.login-form input[type=text],
-.login-form input[type=password] {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 15px;
-  transition: border-color .2s;
-}
-.login-form input:focus { outline: none; border-color: #2a5298; }
-.role-select {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 20px;
+.login-header .logo { font-size: 26px; font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }
+.login-header p { font-size: 11px; opacity: .8; line-height: 1.4; }
+
+.tabs { display: flex; border-bottom: 1px solid #e5e9f0; }
+.tab-btn {
+  flex: 1;
+  padding: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
   font-size: 14px;
-  color: #333;
+  color: #777;
+  border-bottom: 2px solid transparent;
 }
-.role-select label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
-.login-form button {
+.tab-btn.active { color: #1e3c72; font-weight: 600; border-bottom-color: #2a5298; }
+
+.auth-form { display: none; padding: 24px 26px; }
+.auth-form.active { display: block; }
+.auth-form label { display: block; margin-bottom: 14px; }
+.auth-form label span { display: block; font-size: 12px; color: #666; margin-bottom: 5px; }
+.auth-form input,
+.auth-form select {
   width: 100%;
-  padding: 13px;
+  padding: 11px 13px;
+  border: 1px solid #d5dbe7;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.auth-form input:focus,
+.auth-form select:focus { outline: none; border-color: #2a5298; }
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
   background: #2a5298;
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background .2s;
+  margin-top: 6px;
 }
-.login-form button:hover { background: #1e3c72; }
-.hint { margin-top: 15px; font-size: 12px; color: #888; text-align: center; }
-.error { color: #d32f2f; font-size: 13px; margin-bottom: 12px; text-align: center; }
+.btn-primary:hover { background: #1e3c72; }
+
+.error { color: #d32f2f; font-size: 13px; margin-top: 10px; text-align: center; min-height: 18px; }
+
+.hint-block {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f4f7fc;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.7;
+}
