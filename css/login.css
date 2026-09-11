@@ -1,0 +1,72 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+}
+.login-header {
+  background: #1e3c72;
+  color: #fff;
+  padding: 30px 25px;
+  text-align: center;
+}
+.login-header .logo {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.login-header p { font-size: 12px; opacity: .8; line-height: 1.4; }
+.login-form { padding: 30px 25px; }
+.login-form label { display: block; margin-bottom: 18px; }
+.login-form label span {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+.login-form input[type=text],
+.login-form input[type=password] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color .2s;
+}
+.login-form input:focus { outline: none; border-color: #2a5298; }
+.role-select {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #333;
+}
+.role-select label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.login-form button {
+  width: 100%;
+  padding: 13px;
+  background: #2a5298;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+.login-form button:hover { background: #1e3c72; }
+.hint { margin-top: 15px; font-size: 12px; color: #888; text-align: center; }
+.error { color: #d32f2f; font-size: 13px; margin-bottom: 12px; text-align: center; }
